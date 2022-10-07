@@ -1,6 +1,4 @@
 let frames = 0;
-
-
 //Canvas//
 const canvas = document.getElementById('canvas');
 const contex = canvas.getContext('2d');
@@ -21,6 +19,10 @@ const spriteH = 64;
 let frame = 15;
 let gameFrame = 0;
 const staggerFrames = 10;
+
+let asd = document.getElementById('start').addEventListener('click',function (){
+    animate();
+});
 
 //Rulla animation//
 function animate(){
