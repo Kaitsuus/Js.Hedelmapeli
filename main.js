@@ -22,6 +22,12 @@ const spriteW = 96;
 const spriteH = 96;
 let roller1frame = 15;
 let gameFrame = 0;
+let roller2frame = 15;
+let gameFrame2 = 0;
+let roller3frame = 15;
+let gameFrame3 = 0;
+let roller4frame = 15;
+let gameFrame4 = 0;
 const staggerFrames = 10;
 const spriteAnimations = [];
 const animationStates = [
@@ -52,22 +58,50 @@ let btn = document.getElementById('start').addEventListener('click',function (){
 //Rulla animation//
 function animate(){
     contex.clearRect(0, 0, canvasW, canvasH);
-    animateRoller1()
+    animateRollers()
     requestAnimationFrame(animate);
 };
 //Lopeta animaatio//
 function end() {
     cancelAnimationFrame(gameFrame);
     console.log(roller1frame);
-    tulos.push(roller1frame);
 }
 
-function animateRoller1(){
+function animateRollers(){
     let random = Math.floor(Math.random() * 230)
-    contex.drawImage(roller1, 0 * spriteW, roller1frame * spriteH, spriteW, spriteH, 100, 280, spriteW, spriteH);
-   if (gameFrame % staggerFrames == 0){
-        if (roller1frame < 15) roller1frame++;
-        else roller1frame = 0;
+    contex.drawImage(roller1, 0 * spriteW, roller1frame * spriteH, spriteW, spriteH, 100, 250, spriteW, spriteH);
+    contex.drawImage(roller1, 0 * spriteW, roller2frame * spriteH, spriteW, spriteH, 200, 250, spriteW, spriteH);
+
+    if(gameFrame < 100){
+        if (gameFrame % staggerFrames == 0){
+            if (roller1frame < 15) roller1frame++;
+            else roller1frame = 0;
+        }
+        gameFrame++;
+        if (gameFrame === 100){
+            cancelAnimationFrame(gameFrame);
+            console.log(roller1frame);
+        }
     }
-    gameFrame++;
+    if(gameFrame2 < 200){
+        if (gameFrame2 % staggerFrames === 0){
+            if (roller2frame < 15) roller2frame++;
+            else roller2frame = 0;
+        }
+        gameFrame2++;
+        if (gameFrame2 == 200){
+            cancelAnimationFrame(gameFrame2);
+            console.log(roller2frame);
+        }
+    }
+
+    
+    // stop //
+    /*
+    if (gameFrame == 100 && gameFrame2 == 200 && gameFrame3 == 120 && gameFrame4 == 220){
+        end()
+    }
+    */
+}
+function checkRollers(){
 }
