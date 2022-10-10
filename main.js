@@ -34,31 +34,14 @@ let gameFrame3 = 0;
 let roller4frame = 15;
 let gameFrame4 = 0;
 const staggerFrames = 10;
-const spriteAnimations = [];
-const animationStates = [
-    {
-        name: 'roller', 
-        frames: 15,
-    }
-];
-// frame locations//
-animationStates.forEach((state, index) => {
-    let frames = {
-        loc: [],
-    }
-    for (let j = 0; j < state.frames; j++){
-        let positionX = j *spriteW;
-        let positionY = index * spriteH;
-        frames.loc.push({x: positionX, y: positionY});
-    }
-    spriteAnimations[state.name] = frames;
-});
-console.log(spriteAnimations);
+
 
 //start//
 let btn = document.getElementById('start').addEventListener('click',function (){
     animate();
 });
+
+
 
 //Rulla animation//
 function animate(){
@@ -71,12 +54,16 @@ function animate(){
     requestAnimationFrame(animate);
     }else{
         checkRollers()
+        end()
     }
 };
 //Lopeta animaatio//
 function end() {
-    cancelAnimationFrame(gameFrame);
-    console.log(roller1frame);
+    x = 0;
+    gameFrame = 0
+    gameFrame2 = 0
+    gameFrame3 = 0
+    gameFrame4 = 0
 }
 
 function animateRoller1(){
