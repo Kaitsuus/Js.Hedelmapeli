@@ -7,7 +7,7 @@ let aple = [1, 5];
 let melon = [2, 6, 9];
 let pear = [3, 7, 10, 12];
 let cherry = [4, 8, 11, 13, 14];
-let rollerFrames = [0, 0, 0, 0]
+let rollerFrames = []
 
 //Random number generators//
 let random = Math.floor(Math.random(16) * 250)
