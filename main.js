@@ -47,12 +47,36 @@ let btn = document.getElementById('start').addEventListener('click',function (){
 //Rulla animation//
 function animate(){
     if (x < 4){
-    contex.clearRect(0, 0, canvasW, canvasH);
-    animateRoller1()
-    animateRoller2()
-    animateRoller3()
-    animateRoller4()
-    requestAnimationFrame(animate);
+        contex.clearRect(0, 0, canvasW, canvasH);
+        if (checkBox.checked == true){
+            contex.drawImage(roller1, 0 * spriteW, roller1frame * spriteH, spriteW, spriteH, 100, 250, spriteW, spriteH)
+            roller1frame;
+        }
+        else if (checkBox.checked == false){
+            animateRoller1()
+        }
+        if (checkBox2.checked == true){
+            contex.drawImage(roller1, 0 * spriteW, roller2frame * spriteH, spriteW, spriteH, 200, 250, spriteW, spriteH)
+            roller2frame;
+        }
+        else if (checkBox2.checked == false){
+            animateRoller2()
+        }
+        if (checkBox3.checked == true){
+            contex.drawImage(roller1, 0 * spriteW, roller3frame * spriteH, spriteW, spriteH, 300, 250, spriteW, spriteH)
+            roller3frame;
+        }
+        else if (checkBox3.checked == false){
+            animateRoller3()
+        }
+        if (checkBox4.checked == true){
+            contex.drawImage(roller1, 0 * spriteW, roller4frame * spriteH, spriteW, spriteH, 400, 250, spriteW, spriteH)
+            roller4frame;
+        }
+        else if (checkBox4.checked == false){
+            animateRoller4()
+        }
+        requestAnimationFrame(animate);
     }else{
         checkRollers()
         end()
@@ -99,7 +123,7 @@ function animateRoller2(){
     }
 }
 function animateRoller3(){
-    contex.drawImage(roller1, 0 * spriteW, roller3frame * spriteH, spriteW, spriteH, 400, 250, spriteW, spriteH);
+    contex.drawImage(roller1, 0 * spriteW, roller3frame * spriteH, spriteW, spriteH, 300, 250, spriteW, spriteH);
     if(gameFrame3 < random3){
         if (gameFrame3 % staggerFrames == 0){
             if (roller3frame < 14) roller3frame++;
@@ -114,7 +138,7 @@ function animateRoller3(){
     }
 }
 function animateRoller4(){
-    contex.drawImage(roller1, 0 * spriteW, roller4frame * spriteH, spriteW, spriteH, 300, 250, spriteW, spriteH);
+    contex.drawImage(roller1, 0 * spriteW, roller4frame * spriteH, spriteW, spriteH, 400, 250, spriteW, spriteH);
     if(gameFrame4 < random4){
         if (gameFrame4 % staggerFrames == 0){
             if (roller4frame < 14) roller4frame++;
@@ -131,90 +155,40 @@ function animateRoller4(){
 
 function checkRollers(){
     console.log('checking..')
-    if(cherry.includes(rollerFrames) && cherry.includes(rollerFrames) && cherry.includes(rollerFrames)){
-        console.log('kirsikka')
-    }
     if(pear.includes(roller1frame) && pear.includes(roller2frame) && pear.includes(roller3frame)){
         console.log('päärynä')
     }
 }
 
-function lukitut(){
-    if (x < 4){
-        contex.clearRect(0, 0, canvasW, canvasH);
-        requestAnimationFrame(lukitut)
-        if (document.getElementById("lukittu1").value='true'){
-            console.log('off')
-            console.log(roller1frame)
-            contex.drawImage(roller1, 0 * spriteW, roller1frame * spriteH, spriteW, spriteH, 100, 250, spriteW, spriteH);
-            roller1frame;
-        }
-        if (document.getElementById("lukittu2").value='true'){
-            console.log('off')
-            console.log(roller2frame)
-            contex.drawImage(roller1, 0 * spriteW, roller2frame * spriteH, spriteW, spriteH, 200, 250, spriteW, spriteH);
-            roller2frame;
-        }
-        if (document.getElementById("lukittu3").value='true'){
-            console.log('off')
-            console.log(roller3frame)
-            contex.drawImage(roller1, 0 * spriteW, roller3frame * spriteH, spriteW, spriteH, 300, 250, spriteW, spriteH);
-            roller3frame;
-        }
-        if (document.getElementById("lukittu4").value='true'){
-            console.log('off')
-            console.log(roller4frame)
-            contex.drawImage(roller1, 0 * spriteW, roller4frame * spriteH, spriteW, spriteH, 400, 250, spriteW, spriteH);
-            roller4frame;
-        }
-        if (document.getElementById("lukittu1").value='false'){
-            animateRoller1()
-        }
-        if (document.getElementById("lukittu2").value='false'){
-            animateRoller2()
-        }
-        if (document.getElementById("lukittu3").value='false'){
-            animateRoller3()
-        }
-        if (document.getElementById("lukittu4").value='false'){
-            animateRoller4()
-        }else{
-            checkRollers()
-            end()
-        }
-        
+let checkBox = document.getElementById('lukittu');
+function lukitse() {
+    if (checkBox.checked == true){
+      console.log('true')
+    } else {
+       console.log('false')
+    }
+  }
+let checkBox2 = document.getElementById('lukittu2');
+function lukitse2() {
+    if (checkBox2.checked == true){
+      console.log('true')
+    } else {
+       console.log('false')
     }
 }
-
-function onoff(){
-    currentvalue = document.getElementById('lukittu1').value;
-    if(currentvalue == "false"){
-        document.getElementById("lukittu1").value='true';
-    }else{
-        document.getElementById("lukittu1").value='false';
+let checkBox3 = document.getElementById('lukittu3');
+function lukitse3() {
+    if (checkBox3.checked == true){
+      console.log('true')
+    } else {
+       console.log('false')
     }
-}
-function onoff2(){
-    currentvalue = document.getElementById('lukittu2').value;
-    if(currentvalue == "false"){
-        document.getElementById("lukittu2").value='true';
-    }else{
-        document.getElementById("lukittu2").value='false';
-    }
-}
-function onoff3(){
-    currentvalue = document.getElementById('lukittu3').value;
-    if(currentvalue == "false"){
-        document.getElementById("lukittu3").value='true';
-    }else{
-        document.getElementById("lukittu3").value='false';
-    }
-}
-function onoff4(){
-    currentvalue = document.getElementById('lukittu4').value;
-    if(currentvalue == "false"){
-        document.getElementById("lukittu4").value='true';
-    }else{
-        document.getElementById("lukittu4").value='false';
+  }
+let checkBox4 = document.getElementById('lukittu4');
+function lukitse4() {
+    if (checkBox4.checked == true){
+      console.log('true')
+    } else {
+       console.log('false')
     }
 }
