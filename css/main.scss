@@ -8,3 +8,73 @@ canvas {
     height: 600px;
     background-image: url('../Sprites/tausta.png');
 }
+#lukittulabel{
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 44px;
+    margin-left: -9em;
+    margin-top: 7em;
+}
+#lukittu2label{
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 44px;
+    margin-left: -3em;
+    margin-top: 7em;
+}
+#lukittu3label{
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 44px;
+    margin-left: 3em;
+    margin-top: 7em;
+}
+#lukittu4label{
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 64px;
+    height: 44px;
+    margin-left: 9em;
+    margin-top: 7em;
+}
+#start {
+    position: absolute;
+    background-image: url('../sprites/start.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 395px;
+    height: 77px;
+    margin-top: 15em;
+}
