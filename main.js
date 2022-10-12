@@ -92,6 +92,7 @@ function end() {
     gameFrame4 = 0
 }
 
+ // Roller1 animaatio //
 function animateRoller1(){
     contex.drawImage(roller1, 0 * spriteW, roller1frame * spriteH, spriteW, spriteH, 100, 250, spriteW, spriteH);
     if(gameFrame < random){
@@ -107,6 +108,8 @@ function animateRoller1(){
         }
     }
 }
+
+// Roller2 animaatio //
 function animateRoller2(){
     contex.drawImage(roller1, 0 * spriteW, roller2frame * spriteH, spriteW, spriteH, 200, 250, spriteW, spriteH);
     if(gameFrame2 < random2){
@@ -122,6 +125,8 @@ function animateRoller2(){
         }
     }
 }
+
+// Roller3 animaatio //
 function animateRoller3(){
     contex.drawImage(roller1, 0 * spriteW, roller3frame * spriteH, spriteW, spriteH, 300, 250, spriteW, spriteH);
     if(gameFrame3 < random3){
@@ -137,6 +142,8 @@ function animateRoller3(){
         }
     }
 }
+
+// Roller4 animaatio //
 function animateRoller4(){
     contex.drawImage(roller1, 0 * spriteW, roller4frame * spriteH, spriteW, spriteH, 400, 250, spriteW, spriteH);
     if(gameFrame4 < random4){
@@ -153,6 +160,7 @@ function animateRoller4(){
     }
 }
 
+// Tulosten tarkastus //
 function checkRollers(){
     console.log('checking..')
     if(pear.includes(roller1frame) && pear.includes(roller2frame) && pear.includes(roller3frame)){
@@ -160,6 +168,7 @@ function checkRollers(){
     }
 }
 
+// Lukitse 1 //
 let checkBox = document.getElementById('lukittu');
 function lukitse() {
     if (checkBox.checked == true){
@@ -167,7 +176,9 @@ function lukitse() {
     } else {
        console.log('false')
     }
-  }
+}
+
+// Lukitse 2 //
 let checkBox2 = document.getElementById('lukittu2');
 function lukitse2() {
     if (checkBox2.checked == true){
@@ -176,6 +187,8 @@ function lukitse2() {
        console.log('false')
     }
 }
+
+// Lukitse 3 //
 let checkBox3 = document.getElementById('lukittu3');
 function lukitse3() {
     if (checkBox3.checked == true){
@@ -183,7 +196,9 @@ function lukitse3() {
     } else {
        console.log('false')
     }
-  }
+}
+
+// Lukitse 4 //
 let checkBox4 = document.getElementById('lukittu4');
 function lukitse4() {
     if (checkBox4.checked == true){
