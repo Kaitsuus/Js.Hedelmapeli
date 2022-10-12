@@ -10,6 +10,7 @@ let pear = [3, 7, 10, 12];
 let cherry = [4, 8, 11, 13, 14];
 let rollerFrames = []
 
+
 //Random number generators//
 let random = Math.floor(Math.random(16) * 250)
 let random2 = Math.floor(Math.random(20) * 250)
@@ -215,9 +216,9 @@ function checkRollers(){
 let checkBox = document.getElementById('lukittu');
 function lukitse() {
     if (checkBox.checked == true){
-    console.log('true')
+        document.getElementById('lukittuImg').style.visibility ='visible';
     } else {
-    console.log('false')
+        document.getElementById('lukittuImg').style.visibility ='hidden';
     }
 }
 
@@ -225,9 +226,9 @@ function lukitse() {
 let checkBox2 = document.getElementById('lukittu2');
 function lukitse2() {
     if (checkBox2.checked == true){
-      console.log('true')
+        document.getElementById('lukittu2Img').style.visibility ='visible';
     } else {
-       console.log('false')
+        document.getElementById('lukittu2Img').style.visibility ='hidden';
     }
 }
 
@@ -235,9 +236,9 @@ function lukitse2() {
 let checkBox3 = document.getElementById('lukittu3');
 function lukitse3() {
     if (checkBox3.checked == true){
-      console.log('true')
+      document.getElementById('lukittu3Img').style.visibility ='visible';
     } else {
-       console.log('false')
+        document.getElementById('lukittu3Img').style.visibility ='hidden';
     }
 }
 
@@ -245,9 +246,9 @@ function lukitse3() {
 let checkBox4 = document.getElementById('lukittu4');
 function lukitse4() {
     if (checkBox4.checked == true){
-      console.log('true')
+        document.getElementById('lukittu4Img').style.visibility ='visible';
     } else {
-       console.log('false')
+        document.getElementById('lukittu4Img').style.visibility ='hidden';
     }
 }
 
@@ -298,9 +299,13 @@ function resetGameState(){
         i = 0;
         aOff()
         document.getElementById('lukittu').checked = false;
+        document.getElementById('lukittuImg').style.visibility ='hidden';
         document.getElementById('lukittu2').checked = false;
+        document.getElementById('lukittu2Img').style.visibility ='hidden';
         document.getElementById('lukittu3').checked = false;
+        document.getElementById('lukittu3Img').style.visibility ='hidden';
         document.getElementById('lukittu4').checked = false;
+        document.getElementById('lukittu4Img').style.visibility ='hidden';
         contex.clearRect(0, 0, canvasW, canvasH);
         contex.drawImage(roller1, 0 * spriteW, roller1frame * spriteH, spriteW, spriteH, 100, 250, spriteW, spriteH);
         roller1frame;
@@ -313,3 +318,4 @@ function resetGameState(){
         requestAnimationFrame(resetGameState)
     }
 }
+
