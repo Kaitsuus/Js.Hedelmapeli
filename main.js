@@ -1,6 +1,7 @@
 let frames = 0;
 let x = 0;
 let i = 0;
+let score = 0;
 //Fruit frames//
 let seven = [0];
 let apple = [1, 5];
@@ -41,11 +42,19 @@ const staggerFrames = 10;
 
 //start//
 let btn = document.getElementById('start').addEventListener('click',function (){
+    i++;
+    rGsOff();
     aOff();
     animate();
 });
 
-
+let asdOn = true;
+function asdOff(){
+    asdOn = false;
+}
+function asdon(){
+    asdOn = true;
+}
 
 //Rulla animation//
 function animate(){
@@ -54,40 +63,45 @@ function animate(){
         if (checkBox.checked == true){
             contex.drawImage(roller1, 0 * spriteW, roller1frame * spriteH, spriteW, spriteH, 100, 250, spriteW, spriteH)
             roller1frame;
+            x++;
         }
-        else if (checkBox.checked == false){
+        if (checkBox.checked == false){
             animateRoller1()
         }
         if (checkBox2.checked == true){
             contex.drawImage(roller1, 0 * spriteW, roller2frame * spriteH, spriteW, spriteH, 200, 250, spriteW, spriteH)
             roller2frame;
+            console.log(roller2frame);
         }
-        else if (checkBox2.checked == false){
+        if (checkBox2.checked == false){
             animateRoller2()
         }
         if (checkBox3.checked == true){
             contex.drawImage(roller1, 0 * spriteW, roller3frame * spriteH, spriteW, spriteH, 300, 250, spriteW, spriteH)
             roller3frame;
+            x++;
         }
-        else if (checkBox3.checked == false){
+        if (checkBox3.checked == false){
             animateRoller3()
         }
         if (checkBox4.checked == true){
             contex.drawImage(roller1, 0 * spriteW, roller4frame * spriteH, spriteW, spriteH, 400, 250, spriteW, spriteH)
             roller4frame;
+            x++;
         }
-        else if (checkBox4.checked == false){
+        if (checkBox4.checked == false){
             animateRoller4()
         }
         requestAnimationFrame(animate);
     }else{
-        checkRollers()
-        end()
+        checkRollers();
+        reset();
     }
 };
 
+
 //Lopeta animaatio//
-function end() {  
+function reset() {  
     x = 0;
     gameFrame = 0
     gameFrame2 = 0
@@ -168,18 +182,32 @@ function checkRollers(){
     console.log('checking..')
     if(pear.includes(roller1frame) && pear.includes(roller2frame) && pear.includes(roller3frame) && pear.includes(roller4frame)){
         console.log('päärynä')
+        rGson()
+        resetGameState()
     }
     if(cherry.includes(roller1frame) && cherry.includes(roller2frame) && cherry.includes(roller3frame) && cherry.includes(roller4frame)){
         console.log('kirsikka')
+        rGson()
+        resetGameState()
     }
     if(melon.includes(roller1frame) && melon.includes(roller2frame) && melon.includes(roller3frame) && melon.includes(roller4frame)){
         console.log('meloni')
+        rGson()
+        resetGameState()
     }
     if(apple.includes(roller1frame) && apple.includes(roller2frame) && apple.includes(roller3frame) && apple.includes(roller4frame)){
         console.log('omena')
+        rGson()
+        resetGameState()
     }
     if(seven.includes(roller1frame) && seven.includes(roller2frame) && seven.includes(roller3frame) && seven.includes(roller4frame)){
         console.log('seitseman')
+        rGson()
+        resetGameState()
+    }
+    if(i > 1){
+        rGson()
+        resetGameState()
     }
 }
 
@@ -187,9 +215,9 @@ function checkRollers(){
 let checkBox = document.getElementById('lukittu');
 function lukitse() {
     if (checkBox.checked == true){
-      console.log('true')
+    console.log('true')
     } else {
-       console.log('false')
+    console.log('false')
     }
 }
 
@@ -228,7 +256,7 @@ function lukitse4() {
 
 // On load //
 let aOn = true;
-function animate2(){
+function animateOnLoad(){
     if (aOn){
         if (x < 4){
             contex.clearRect(0, 0, canvasW, canvasH);
@@ -237,18 +265,51 @@ function animate2(){
             animateRoller3()
             animateRoller4()
             startBar()
-            requestAnimationFrame(animate2)
+            requestAnimationFrame(animateOnLoad)
         }
         if (x == 4){
-            end();
+            reset();
         }
     }
 }
-animate2()
+animateOnLoad()
 
 function aOff(){
     aOn = false;
 }
+function aon(){
+    aOn = true;
+}
 function startBar(){
     contex.drawImage(startImg, 0 * 361, 0 * 68, 361, 68, 120, 260, 361, 68);
+}
+
+// pelin nollaus //
+let rGsOn = true;
+
+function rGsOff(){
+    rGsOn = false;
+}
+function rGson(){
+    rGsOn = true;
+}
+function resetGameState(){
+    if (rGsOn){
+        i = 0;
+        aOff()
+        document.getElementById('lukittu').checked = false;
+        document.getElementById('lukittu2').checked = false;
+        document.getElementById('lukittu3').checked = false;
+        document.getElementById('lukittu4').checked = false;
+        contex.clearRect(0, 0, canvasW, canvasH);
+        contex.drawImage(roller1, 0 * spriteW, roller1frame * spriteH, spriteW, spriteH, 100, 250, spriteW, spriteH);
+        roller1frame;
+        contex.drawImage(roller1, 0 * spriteW, roller2frame * spriteH, spriteW, spriteH, 200, 250, spriteW, spriteH);
+        roller2frame;
+        contex.drawImage(roller1, 0 * spriteW, roller3frame * spriteH, spriteW, spriteH, 300, 250, spriteW, spriteH);
+        roller3frame;
+        contex.drawImage(roller1, 0 * spriteW, roller4frame * spriteH, spriteW, spriteH, 400, 250, spriteW, spriteH);
+        roller4frame;
+        requestAnimationFrame(resetGameState)
+    }
 }
