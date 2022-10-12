@@ -2,8 +2,8 @@ let frames = 0;
 let x = 0;
 let i = 0;
 //Fruit frames//
-let seiska = [0];
-let aple = [1, 5];
+let seven = [0];
+let apple = [1, 5];
 let melon = [2, 6, 9];
 let pear = [3, 7, 10, 12];
 let cherry = [4, 8, 11, 13, 14];
@@ -24,6 +24,8 @@ const canvasH = canvas.height = 600;
 //Image control//
 const roller1 = new Image();
 roller1.src = '../sprites/rulla2.png';
+const startImg = new Image();
+startImg.src = '../sprites/onload.png';
 const spriteW = 96;
 const spriteH = 96;
 let roller1frame = 15;
@@ -39,6 +41,7 @@ const staggerFrames = 10;
 
 //start//
 let btn = document.getElementById('start').addEventListener('click',function (){
+    aOff();
     animate();
 });
 
@@ -163,8 +166,20 @@ function animateRoller4(){
 // Tulosten tarkastus //
 function checkRollers(){
     console.log('checking..')
-    if(pear.includes(roller1frame) && pear.includes(roller2frame) && pear.includes(roller3frame)){
+    if(pear.includes(roller1frame) && pear.includes(roller2frame) && pear.includes(roller3frame) && pear.includes(roller4frame)){
         console.log('päärynä')
+    }
+    if(cherry.includes(roller1frame) && cherry.includes(roller2frame) && cherry.includes(roller3frame) && cherry.includes(roller4frame)){
+        console.log('kirsikka')
+    }
+    if(melon.includes(roller1frame) && melon.includes(roller2frame) && melon.includes(roller3frame) && melon.includes(roller4frame)){
+        console.log('meloni')
+    }
+    if(apple.includes(roller1frame) && apple.includes(roller2frame) && apple.includes(roller3frame) && apple.includes(roller4frame)){
+        console.log('omena')
+    }
+    if(seven.includes(roller1frame) && seven.includes(roller2frame) && seven.includes(roller3frame) && seven.includes(roller4frame)){
+        console.log('seitseman')
     }
 }
 
@@ -206,4 +221,34 @@ function lukitse4() {
     } else {
        console.log('false')
     }
+}
+
+
+
+
+// On load //
+let aOn = true;
+function animate2(){
+    if (aOn){
+        if (x < 4){
+            contex.clearRect(0, 0, canvasW, canvasH);
+            animateRoller1()
+            animateRoller2()
+            animateRoller3()
+            animateRoller4()
+            startBar()
+            requestAnimationFrame(animate2)
+        }
+        if (x == 4){
+            end();
+        }
+    }
+}
+animate2()
+
+function aOff(){
+    aOn = false;
+}
+function startBar(){
+    contex.drawImage(startImg, 0 * 361, 0 * 68, 361, 68, 120, 260, 361, 68);
 }
