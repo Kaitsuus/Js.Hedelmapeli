@@ -105,6 +105,7 @@ function animate(){
             contex.drawImage(roller1, 0 * spriteW, roller2frame * spriteH, spriteW, spriteH, 200, 250, spriteW, spriteH)
             roller2frame;
             console.log(roller2frame);
+            x++;
         }
         if (checkBox2.checked == false){
             animateRoller2()
@@ -249,8 +250,12 @@ function checkRollers(){
         document.getElementById('coinsAmount').innerHTML = coins;
     }
     if(i > 1){
+        if(checkBox.checked == false && checkBox2.checked == false && checkBox3.checked == false && checkBox3.checked == false){
+            i = 0;
+        }else{
         rGson()
         resetGameState()
+        }
     }
 }
 
