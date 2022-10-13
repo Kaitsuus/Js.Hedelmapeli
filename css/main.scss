@@ -1,3 +1,15 @@
+body{
+    background-color: #c29938;
+
+    footer{
+        text-align: center;
+        bottom: 0;
+        width: 100%;
+        position: fixed;
+
+    }
+}
+
 canvas {
     border: 5px solid black;
     position: absolute;
@@ -217,4 +229,16 @@ canvas {
     height: 77px;
     margin-left: -18em;
     margin-top: 15em;
+}
+#lukittu{
+    visibility: hidden;
+}
+#lukittu2{
+    visibility: hidden;
+}
+#lukittu3{
+    visibility: hidden;
+}
+#lukittu4{
+    visibility: hidden;
 }

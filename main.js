@@ -8,7 +8,6 @@ let apple = [1, 5];
 let melon = [2, 6, 9];
 let pear = [3, 7, 10, 12];
 let cherry = [4, 8, 11, 13, 14];
-let rollerFrames = []
 
 //Panos & kolikot//
 let bet = 1;
