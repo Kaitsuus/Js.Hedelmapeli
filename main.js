@@ -79,6 +79,16 @@ let btn = document.getElementById('start').addEventListener('click',function (){
     document.getElementById('coinsAmount').innerHTML = coins;
 });
 
+//reset//
+let resetBtn = document.getElementById('reset').addEventListener('click',function (){
+    if (coins < 50 || coins > 50){
+        aon();
+        animateOnLoad();
+        coins = 50;
+        document.getElementById('coinsAmount').innerHTML = coins;
+    }
+});
+
 //Rulla animation//
 function animate(){
     if (x < 4){
