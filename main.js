@@ -1,4 +1,4 @@
-let frames = 0;
+
 let x = 0;
 let i = 0;
 let score = 0;
@@ -10,6 +10,32 @@ let pear = [3, 7, 10, 12];
 let cherry = [4, 8, 11, 13, 14];
 let rollerFrames = []
 
+//Panos & kolikot//
+let bet = 1;
+let bet2 = 2;
+let bet3 = 3;
+let coins = 50;
+let j = 1;
+function cycleBets(){
+    if (j == 1){
+        document.getElementById('betValue').innerHTML = bet;
+    }
+    if (j == 2){
+        document.getElementById('betValue').innerHTML = bet2;
+    }
+    if (j == 3){
+        document.getElementById('betValue').innerHTML = bet3;
+    }
+}
+
+let bets = document.getElementById('bets').addEventListener('click',function (){
+    if (j < 3){
+        j++;
+    }else{
+        j = 1;
+    }
+    cycleBets()
+});
 
 //Random number generators//
 let random = Math.floor(Math.random(16) * 250)
@@ -43,19 +69,15 @@ const staggerFrames = 10;
 
 //start//
 let btn = document.getElementById('start').addEventListener('click',function (){
-    i++;
-    rGsOff();
-    aOff();
-    animate();
+    if(j <= coins){
+        i++;
+        rGsOff();
+        aOff();
+        animate();
+        coins -= j;
+    }
+    document.getElementById('coins').innerHTML = coins;
 });
-
-let asdOn = true;
-function asdOff(){
-    asdOn = false;
-}
-function asdon(){
-    asdOn = true;
-}
 
 //Rulla animation//
 function animate(){
@@ -183,28 +205,38 @@ function checkRollers(){
     console.log('checking..')
     if(pear.includes(roller1frame) && pear.includes(roller2frame) && pear.includes(roller3frame) && pear.includes(roller4frame)){
         console.log('päärynä')
+        coins += 4*j;
         rGson()
         resetGameState()
+        document.getElementById('coins').innerHTML = coins;
     }
     if(cherry.includes(roller1frame) && cherry.includes(roller2frame) && cherry.includes(roller3frame) && cherry.includes(roller4frame)){
         console.log('kirsikka')
+        coins += 3*j
         rGson()
         resetGameState()
+        document.getElementById('coins').innerHTML = coins;
     }
     if(melon.includes(roller1frame) && melon.includes(roller2frame) && melon.includes(roller3frame) && melon.includes(roller4frame)){
         console.log('meloni')
+        coins += 5*j;
         rGson()
         resetGameState()
+        document.getElementById('coins').innerHTML = coins;
     }
     if(apple.includes(roller1frame) && apple.includes(roller2frame) && apple.includes(roller3frame) && apple.includes(roller4frame)){
         console.log('omena')
+        coins += 6*j
         rGson()
         resetGameState()
+        document.getElementById('coins').innerHTML = coins;
     }
     if(seven.includes(roller1frame) && seven.includes(roller2frame) && seven.includes(roller3frame) && seven.includes(roller4frame)){
         console.log('seitseman')
+        coins += 10*j
         rGson()
         resetGameState()
+        document.getElementById('coins').innerHTML = coins;
     }
     if(i > 1){
         rGson()
