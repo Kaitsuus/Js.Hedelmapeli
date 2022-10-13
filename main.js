@@ -1,7 +1,6 @@
 
 let x = 0;
 let i = 0;
-let score = 0;
 //Fruit frames//
 let seven = [0];
 let apple = [1, 5];
