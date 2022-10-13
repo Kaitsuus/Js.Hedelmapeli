@@ -76,7 +76,7 @@ let btn = document.getElementById('start').addEventListener('click',function (){
         animate();
         coins -= j;
     }
-    document.getElementById('coins').innerHTML = coins;
+    document.getElementById('coinsAmount').innerHTML = coins;
 });
 
 //Rulla animation//
@@ -208,35 +208,35 @@ function checkRollers(){
         coins += 4*j;
         rGson()
         resetGameState()
-        document.getElementById('coins').innerHTML = coins;
+        document.getElementById('coinsAmount').innerHTML = coins;
     }
     if(cherry.includes(roller1frame) && cherry.includes(roller2frame) && cherry.includes(roller3frame) && cherry.includes(roller4frame)){
         console.log('kirsikka')
         coins += 3*j
         rGson()
         resetGameState()
-        document.getElementById('coins').innerHTML = coins;
+        document.getElementById('coinsAmount').innerHTML = coins;
     }
     if(melon.includes(roller1frame) && melon.includes(roller2frame) && melon.includes(roller3frame) && melon.includes(roller4frame)){
         console.log('meloni')
         coins += 5*j;
         rGson()
         resetGameState()
-        document.getElementById('coins').innerHTML = coins;
+        document.getElementById('coinsAmount').innerHTML = coins;
     }
     if(apple.includes(roller1frame) && apple.includes(roller2frame) && apple.includes(roller3frame) && apple.includes(roller4frame)){
         console.log('omena')
         coins += 6*j
         rGson()
         resetGameState()
-        document.getElementById('coins').innerHTML = coins;
+        document.getElementById('coinsAmount').innerHTML = coins;
     }
     if(seven.includes(roller1frame) && seven.includes(roller2frame) && seven.includes(roller3frame) && seven.includes(roller4frame)){
         console.log('seitseman')
         coins += 10*j
         rGson()
         resetGameState()
-        document.getElementById('coins').innerHTML = coins;
+        document.getElementById('coinsAmount').innerHTML = coins;
     }
     if(i > 1){
         rGson()

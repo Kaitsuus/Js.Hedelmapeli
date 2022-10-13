@@ -142,3 +142,64 @@ canvas {
     margin-left: 9em;
     margin-top: 0em;
 }
+#value{
+    position: absolute;
+    background-image: url('../Sprites/score&coins.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65px;
+    height: 58px;
+    margin-left: -11.5em;
+    margin-top: -6em;
+    p {
+        font-family: 'Silkscreen', cursive;
+        font-size: 40px;
+        text-decoration: none;
+        text-align: center;
+        margin-top: 0em;
+        color: black;
+    }
+}
+#coins{
+    position: absolute;
+    background-image: url('../Sprites/coins.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 99px;
+    height: 58px;
+    margin-left: -6em;
+    margin-top: -6em;
+    p {
+        font-family: 'Silkscreen', cursive;
+        font-size: 40px;
+        text-decoration: none;
+        text-align: center;
+        margin-top: 0em;
+        color: black;
+    }
+}
+#bets{
+    position: absolute;
+    background-image: url('../Sprites/betvalue.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    border: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65px;
+    height: 77px;
+    margin-left: 18em;
+    margin-top: 15em;
+}
